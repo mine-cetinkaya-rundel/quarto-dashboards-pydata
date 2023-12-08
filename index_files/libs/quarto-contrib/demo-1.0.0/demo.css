@@ -1,0 +1,34 @@
+.slide.demo h2 {
+  font-size: 0.7em;
+}
+
+.smaller {
+  font-size: 0.7em !important;
+}
+
+.reveal .slides section.smaller h2 {
+  font-size: 1.0em !important;
+}
+
+
+.slide.demo .column, .columns.demo .column {
+  position: relative;
+  width: 605px;
+  height: 662px !important;
+}
+
+.column {
+  position: relative;
+}
+
+
+img.demo-output, img.demo-notebook  {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 605px;
+  margin: 0 !important;
+  height: auto;
+  max-height: 662px !important;
+  border: 1px solid grey;
+}

@@ -1,0 +1,8 @@
+title: Demo
+author: J.J. Allaire
+version: 1.0.0
+quarto-required: ">=1.2"
+contributes:
+  shortcodes:
+    - demo.lua
+
