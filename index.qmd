@@ -43,8 +43,8 @@ you can **weave** together **narrative** and **code** to produce elegantly forma
 
 ::: incremental
 -   **consistent** implementation of attractive and handy features across outputs: tabsets, code-folding, syntax highlighting, etc.
+-   **multi-lingual** support for Python, Julia, Observable, and more via the Jupyter engine for executable code chunks as well as R via the knitr engine
 -   defaults that meet accessibility guidelines as well as features that enable good practices for producing **accessible** documents
--   natively **multi-lingual**, supporting for multiple languages like Python, Julia, Observable, and more via the Jupyter engine for executable code chunks
 :::
 
 ## How does Quarto work? {.nostretch}
@@ -78,11 +78,7 @@ with many enhancements
 
 ## Render Notebook to HTML (document and cell level options) {.demo}
 
-{{< demo cell-options 2 >}}
-
-## Render Notebook to PDF [--- <https://quarto.org/docs/output-formats/pdf-basics.html>]{.web} {.demo}
-
-{{< demo pdf >}}
+{{< demo cell-options >}}
 
 ## Render Notebook to Revealjs [--- <https://quarto.org/docs/presentations/revealjs/>]{.web} {.demo}
 
@@ -116,48 +112,111 @@ quarto preview notebook.qmd
 quarto preview notebook.qmd --to pdf
 ```
 
-##  {.no-line background-image="images/jupyterlab.png" background-size="contain"}
-
 ## Plain Text Notebooks w/`.qmd` Files
 
-::: {layout="[[40,50]]"}
 ::: smaller
-::: {style="padding-top:0.65em;"}
-```` {.markdown filename="penguins.qmd" style="overflow-y: hidden" code-line-numbers="|1-7|9-16|18-20|22-31"}
+```` {.markdown filename="snowdash.ipynb" style="overflow-y: hidden" code-line-numbers="|1-5|7-13|48|87-97"}
 ---
-title: "Palmer Penguins"
-author: Norah Jones
-date: March 12, 2023  
-format: html
+title: Dashing through the snow ❄️
+format: revealjs
 jupyter: python3
 ---
 
 ```{{python}}
-#| echo: false
-
 import pandas as pd
-df = pd.read_csv("palmer-penguins.csv") 
-df = df[["species", "island", "year", \
-         "bill_length_mm", "bill_depth_mm"]]
+from datetime import datetime
+import itables as itables
+import plotly.express as px
+import plotly.graph_objects as go
 ```
 
-## Exploring the Data
-
-See @fig-bill-sizes for an exploration of bill sizes.
+```{{python}}
+#| tags: [parameters]
+today_string = "2023-12-08"
+```
 
 ```{{python}}
-#| label: fig-bill-sizes
-#| fig-cap: Bill Sizes by Species
+#| message: false
+meribel = pd.read_csv("data/Meribel.csv")
+meribel['datetime'] = pd.to_datetime(meribel['datetime'])
 
-import matplotlib.pyplot as plt
-import seaborn as sns
-g = sns.FacetGrid(df, hue="species", height=3)
-g.map(plt.scatter, "bill_length_mm", "bill_depth_mm") \
-  .add_legend()
+stations = pd.read_csv("data/stations.csv")
+```
+
+```{{python}}
+today_date = pd.to_datetime(today_string)
+```
+
+```{{python}}
+n_snow = meribel[meribel['snow'] > 0].shape[0]
+
+n_below_freezing = meribel[meribel['temp'] < 32].shape[0]
+
+def below_freezing_color(n):
+    if n > 5:
+        return "danger"
+    elif 3 < n <= 5:
+        return "warning"
+    else:
+        return "light"
+
+n_below_freezing_color = below_freezing_color(n_below_freezing)
+```
+
+## Snow fall
+
+```{{python}}
+#| label: fig-snow-fall
+#| fig-cap: Snow fall in Meribel
+#| scrolled: true
+
+# Create figure
+fig = go.Figure()
+
+# Add lines for temp, tempmin, tempmax
+fig = fig.add_trace(go.Scatter(x=meribel['datetime'], y=meribel['snow'], mode='lines', name='temp', line=dict(color='black')))
+
+# Add vertical dashed line for today's date
+fig = fig.add_shape(
+    go.layout.Shape(
+        type="line",
+        x0=today_date,
+        x1=today_date,
+        y0=min(meribel['snow']),
+        y1=max(meribel['snow']),
+        line=dict(
+            color="#ae8b2d",
+            width=1.5,
+            dash="dash"
+        )
+    )
+)
+
+# Set layout including axis labels and y-axis range
+fig = fig.update_layout(
+    xaxis_title="Date",
+    yaxis_title="Snow fall",
+)
+
+# Show the plot
+fig.show()
+```
+
+# Data
+
+```{{python}}
+#| title: Data
+# Selecting all columns except 'name'
+meribel = meribel.drop(columns=['name'])
+
+# Displaying the DataFrame as an interactive table with pagination using itables
+itables.options.classes = ["display", "table", "table-bordered", "table-striped"]
+itables.show(meribel)
 ```
 ````
 :::
-:::
+
+## Plain Text Notebooks w/`.qmd` Files
 
 -   Editable with any text editor (extensions for VS Code, Neovim, and Emacs)
 
@@ -168,7 +227,6 @@ g.map(plt.scatter, "bill_length_mm", "bill_depth_mm") \
 -   Cache output with Jupyter Cache or Quarto freezer
 
 -   Lots of pros and cons visa-vi traditional `.ipynb` format/editors, use the right tool for each job
-:::
 
 ## Rendering Pipeline
 
@@ -185,11 +243,11 @@ Plain text workflow (`.qmd` =\> `.ipynb` then execute cells):
 A new output format for easily creating\
 dashboards from notebooks
 
+##  {.no-line background-image="images/dashboards/dashing-through-snow.png" background-size="contain"}
+
 ##  {.no-line background-image="images/dashboards/customer-churn.png" background-size="contain"}
 
 ##  {.no-line background-image="images/dashboards/mynorfolk.png" background-size="contain"}
-
-##  {.no-line background-image="images/dashboards/labor.png" background-size="contain"}
 
 ##  {.no-line background-image="images/dashboards/earthquakes.png" background-size="contain"}
 
@@ -199,29 +257,22 @@ dashboards from notebooks
 
 ##  {.no-line background-image="images/dashboards/gapminder.png" background-size="contain"}
 
-## Notebook ➝ Dashboard
+## Demo: Dashing through the snow
 
-::: columns
-::: column
-![](images/demo-gapminder-notebook-1.png){.demo-notebook}
-:::
+Dashboard: <https://mine.quarto.pub/dashing-through-snow-py>
 
-::: column
- 
-:::
-:::
+Code: <https://github.com/mine-cetinkaya-rundel/dashing-through-snow>
 
 ## Notebook ➝ Dashboard
 
-{{< demo gapminder-notebook >}}
+```` {.markdown filename="snowdash.ipynb" style="overflow-y: hidden" code-line-numbers="|3"}
+---
+title: "Dashing through the snow ❄️"
+format: dashboard
+---
 
-:::
-
-## Notebook ➝ Dashboard
-
-{{< demo gapminder-notebook-data >}}
-
-:::
+# notebook content goes here...
+````
 
 ## Dashboard Components
 
@@ -681,52 +732,9 @@ quarto render dashboard.qmd -P ticker:GOOG
 :::
 :::
 
-## Hello, Shiny {.smaller}
-
-::: columns
-::: column
-```` {.python .pymd code-line-numbers="|15-19|25-29|29|"}
----
-title: "Penguin Bills"
-format: dashboard
-server: shiny
----
-
-```{{python}}
-import seaborn as sns
-penguins = sns.load_dataset("penguins")
-```
-
-## {.sidebar}
-
-```{{python}}
-from shiny import render, ui
-ui.input_select("x", "Variable:",
-                choices=["bill_length_mm", "bill_depth_mm"])
-ui.input_select("dist", "Distribution:", choices=["hist", "kde"])
-ui.input_checkbox("rug", "Show rug marks", value = False)
-```
-
-## Column
-
-```{{python}}
-@render.plot
-def displot():
-    sns.displot(
-        data=penguins, hue="species", multiple="stack",
-        x=input.x(), rug=input.rug(),kind=input.dist())
-```
-````
-:::
-
-::: column
-![](images/hello-shiny-slide.png)
-:::
-:::
-
 ##  {.no-line background-image="images/dashboards/shiny-penguins.png" background-size="contain"}
 
-## Shiny Deployment
+## Deployment of Interactive Dashboards
 
 ::: columns
 ::: {.column width="60%"}
@@ -751,6 +759,8 @@ def displot():
 ### Serverless
 
 Using [Pyodide](https://pyodide.org/)
+
+[[Example](https://wch.github.io/retirement-simulation-dashboard/)]
 :::
 :::
 
@@ -778,15 +788,4 @@ pip install git+https://github.com/quarto-dev/quarto-cli
 
 ### Slides {style="margin-top: 0.4em; font-size: 1em;"}
 
-<https://jjallaire.github.io/pydata-quarto-dashboards/>
-
-```{=html}
-<script type="text/javascript">
-// tweak headings in pymd
-document.querySelectorAll(".pymd span.co").forEach(el => {
-   if (!el.innerText.startsWith("#|")) {
-      el.style.fontWeight = 1000;
-   }
-});
-</script>
-```
+<https://mine.quarto.pub/quarto-dashboards-pydata/>

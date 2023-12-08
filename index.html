@@ -9,7 +9,7 @@
 <link href="index_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="index_files/libs/quarto-contrib/demo-1.0.0/demo.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.515">
+  <meta name="generator" content="quarto-1.4.513">
 
   <meta name="author" content="Mine Çetinkaya-Rundel">
   <title>Dashing through the snow ❄️ (or Sharing your data) in a Quarto Dashboard</title>
@@ -433,8 +433,8 @@ Mine Çetinkaya-Rundel
 <div>
 <ul>
 <li class="fragment"><strong>consistent</strong> implementation of attractive and handy features across outputs: tabsets, code-folding, syntax highlighting, etc.</li>
+<li class="fragment"><strong>multi-lingual</strong> support for Python, Julia, Observable, and more via the Jupyter engine for executable code chunks as well as R via the knitr engine</li>
 <li class="fragment">defaults that meet accessibility guidelines as well as features that enable good practices for producing <strong>accessible</strong> documents</li>
-<li class="fragment">natively <strong>multi-lingual</strong>, supporting for multiple languages like Python, Julia, Observable, and more via the Jupyter engine for executable code chunks</li>
 </ul>
 </div>
 </section>
@@ -483,17 +483,6 @@ with many enhancements</p>
 <img data-src="images/demo-cell-options.png" class="demo-notebook">
 </div><div class="column">
 <img data-src="images/demo-cell-options-output.png" class="demo-output fragment fade-in-then-out">
-<img data-src="images/demo-cell-options-output-2.png" class="demo-output fragment">
-</div>
-</div>
-</section>
-<section id="render-notebook-to-pdf-httpsquarto.orgdocsoutput-formatspdf-basics.html" class="slide level2 demo">
-<h2>Render Notebook to PDF <span class="web">— <a href="https://quarto.org/docs/output-formats/pdf-basics.html" class="uri">https://quarto.org/docs/output-formats/pdf-basics.html</a></span></h2>
-<div class="columns">
-<div class="column">
-<img data-src="images/demo-pdf.png" class="demo-notebook">
-</div><div class="column">
-<img data-src="images/demo-pdf-output.png" class="demo-output fragment fade-in-then-out">
 </div>
 </div>
 </section>
@@ -531,54 +520,115 @@ with many enhancements</p>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> preview notebook.qmd</span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> preview notebook.qmd <span class="at">--to</span> pdf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="section" class="slide level2 no-line" data-background-image="images/jupyterlab.png" data-background-size="contain">
-<h2></h2>
-</section>
 <section id="plain-text-notebooks-w.qmd-files" class="slide level2">
 <h2>Plain Text Notebooks w/<code>.qmd</code> Files</h2>
-<div class="quarto-layout-panel" data-layout="[[40,50]]">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="smaller quarto-layout-cell" style="flex-basis: 44.4%;justify-content: center;">
-<div style="padding-top:0.65em;">
+<div class="smaller">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
-<pre><strong>penguins.qmd</strong></pre>
+<pre><strong>snowdash.ipynb</strong></pre>
 </div>
-<div class="sourceCode" id="cb3" data-filename="penguins.qmd" style="overflow-y: hidden" data-code-line-numbers="|1-7|9-16|18-20|22-31"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1"></a><span class="co">---</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="an">title:</span><span class="co"> "Palmer Penguins"</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="an">author:</span><span class="co"> Norah Jones</span></span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="an">date:</span><span class="co"> March 12, 2023  </span></span>
-<span id="cb3-5"><a href="#cb3-5"></a><span class="an">format:</span><span class="co"> html</span></span>
-<span id="cb3-6"><a href="#cb3-6"></a><span class="an">jupyter:</span><span class="co"> python3</span></span>
-<span id="cb3-7"><a href="#cb3-7"></a><span class="co">---</span></span>
-<span id="cb3-8"><a href="#cb3-8"></a></span>
-<span id="cb3-9"><a href="#cb3-9"></a><span class="in">```{python}</span></span>
-<span id="cb3-10"><a href="#cb3-10"></a><span class="in">#| echo: false</span></span>
-<span id="cb3-11"><a href="#cb3-11"></a></span>
-<span id="cb3-12"><a href="#cb3-12"></a><span class="in">import pandas as pd</span></span>
-<span id="cb3-13"><a href="#cb3-13"></a><span class="in">df = pd.read_csv("palmer-penguins.csv") </span></span>
-<span id="cb3-14"><a href="#cb3-14"></a><span class="in">df = df[["species", "island", "year", \</span></span>
-<span id="cb3-15"><a href="#cb3-15"></a><span class="in">         "bill_length_mm", "bill_depth_mm"]]</span></span>
-<span id="cb3-16"><a href="#cb3-16"></a><span class="in">```</span></span>
-<span id="cb3-17"><a href="#cb3-17"></a></span>
-<span id="cb3-18"><a href="#cb3-18"></a><span class="fu">## Exploring the Data</span></span>
+<div class="sourceCode" id="cb3" data-filename="snowdash.ipynb" style="overflow-y: hidden" data-code-line-numbers="|1-5|7-13|48|87-97"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1"></a><span class="co">---</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="an">title:</span><span class="co"> Dashing through the snow ❄️</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="an">format:</span><span class="co"> revealjs</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="an">jupyter:</span><span class="co"> python3</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="co">---</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a></span>
+<span id="cb3-7"><a href="#cb3-7"></a><span class="in">```{python}</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a><span class="in">import pandas as pd</span></span>
+<span id="cb3-9"><a href="#cb3-9"></a><span class="in">from datetime import datetime</span></span>
+<span id="cb3-10"><a href="#cb3-10"></a><span class="in">import itables as itables</span></span>
+<span id="cb3-11"><a href="#cb3-11"></a><span class="in">import plotly.express as px</span></span>
+<span id="cb3-12"><a href="#cb3-12"></a><span class="in">import plotly.graph_objects as go</span></span>
+<span id="cb3-13"><a href="#cb3-13"></a><span class="in">```</span></span>
+<span id="cb3-14"><a href="#cb3-14"></a></span>
+<span id="cb3-15"><a href="#cb3-15"></a><span class="in">```{python}</span></span>
+<span id="cb3-16"><a href="#cb3-16"></a><span class="in">#| tags: [parameters]</span></span>
+<span id="cb3-17"><a href="#cb3-17"></a><span class="in">today_string = "2023-12-08"</span></span>
+<span id="cb3-18"><a href="#cb3-18"></a><span class="in">```</span></span>
 <span id="cb3-19"><a href="#cb3-19"></a></span>
-<span id="cb3-20"><a href="#cb3-20"></a>See @fig-bill-sizes for an exploration of bill sizes.</span>
-<span id="cb3-21"><a href="#cb3-21"></a></span>
-<span id="cb3-22"><a href="#cb3-22"></a><span class="in">```{python}</span></span>
-<span id="cb3-23"><a href="#cb3-23"></a><span class="in">#| label: fig-bill-sizes</span></span>
-<span id="cb3-24"><a href="#cb3-24"></a><span class="in">#| fig-cap: Bill Sizes by Species</span></span>
-<span id="cb3-25"><a href="#cb3-25"></a></span>
-<span id="cb3-26"><a href="#cb3-26"></a><span class="in">import matplotlib.pyplot as plt</span></span>
-<span id="cb3-27"><a href="#cb3-27"></a><span class="in">import seaborn as sns</span></span>
-<span id="cb3-28"><a href="#cb3-28"></a><span class="in">g = sns.FacetGrid(df, hue="species", height=3)</span></span>
-<span id="cb3-29"><a href="#cb3-29"></a><span class="in">g.map(plt.scatter, "bill_length_mm", "bill_depth_mm") \</span></span>
-<span id="cb3-30"><a href="#cb3-30"></a><span class="in">  .add_legend()</span></span>
-<span id="cb3-31"><a href="#cb3-31"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-20"><a href="#cb3-20"></a><span class="in">```{python}</span></span>
+<span id="cb3-21"><a href="#cb3-21"></a><span class="in">#| message: false</span></span>
+<span id="cb3-22"><a href="#cb3-22"></a><span class="in">meribel = pd.read_csv("data/Meribel.csv")</span></span>
+<span id="cb3-23"><a href="#cb3-23"></a><span class="in">meribel['datetime'] = pd.to_datetime(meribel['datetime'])</span></span>
+<span id="cb3-24"><a href="#cb3-24"></a></span>
+<span id="cb3-25"><a href="#cb3-25"></a><span class="in">stations = pd.read_csv("data/stations.csv")</span></span>
+<span id="cb3-26"><a href="#cb3-26"></a><span class="in">```</span></span>
+<span id="cb3-27"><a href="#cb3-27"></a></span>
+<span id="cb3-28"><a href="#cb3-28"></a><span class="in">```{python}</span></span>
+<span id="cb3-29"><a href="#cb3-29"></a><span class="in">today_date = pd.to_datetime(today_string)</span></span>
+<span id="cb3-30"><a href="#cb3-30"></a><span class="in">```</span></span>
+<span id="cb3-31"><a href="#cb3-31"></a></span>
+<span id="cb3-32"><a href="#cb3-32"></a><span class="in">```{python}</span></span>
+<span id="cb3-33"><a href="#cb3-33"></a><span class="in">n_snow = meribel[meribel['snow'] &gt; 0].shape[0]</span></span>
+<span id="cb3-34"><a href="#cb3-34"></a></span>
+<span id="cb3-35"><a href="#cb3-35"></a><span class="in">n_below_freezing = meribel[meribel['temp'] &lt; 32].shape[0]</span></span>
+<span id="cb3-36"><a href="#cb3-36"></a></span>
+<span id="cb3-37"><a href="#cb3-37"></a><span class="in">def below_freezing_color(n):</span></span>
+<span id="cb3-38"><a href="#cb3-38"></a><span class="in">    if n &gt; 5:</span></span>
+<span id="cb3-39"><a href="#cb3-39"></a><span class="in">        return "danger"</span></span>
+<span id="cb3-40"><a href="#cb3-40"></a><span class="in">    elif 3 &lt; n &lt;= 5:</span></span>
+<span id="cb3-41"><a href="#cb3-41"></a><span class="in">        return "warning"</span></span>
+<span id="cb3-42"><a href="#cb3-42"></a><span class="in">    else:</span></span>
+<span id="cb3-43"><a href="#cb3-43"></a><span class="in">        return "light"</span></span>
+<span id="cb3-44"><a href="#cb3-44"></a></span>
+<span id="cb3-45"><a href="#cb3-45"></a><span class="in">n_below_freezing_color = below_freezing_color(n_below_freezing)</span></span>
+<span id="cb3-46"><a href="#cb3-46"></a><span class="in">```</span></span>
+<span id="cb3-47"><a href="#cb3-47"></a></span>
+<span id="cb3-48"><a href="#cb3-48"></a><span class="fu">## Snow fall</span></span>
+<span id="cb3-49"><a href="#cb3-49"></a></span>
+<span id="cb3-50"><a href="#cb3-50"></a><span class="in">```{python}</span></span>
+<span id="cb3-51"><a href="#cb3-51"></a><span class="in">#| label: fig-snow-fall</span></span>
+<span id="cb3-52"><a href="#cb3-52"></a><span class="in">#| fig-cap: Snow fall in Meribel</span></span>
+<span id="cb3-53"><a href="#cb3-53"></a><span class="in">#| scrolled: true</span></span>
+<span id="cb3-54"><a href="#cb3-54"></a></span>
+<span id="cb3-55"><a href="#cb3-55"></a><span class="in"># Create figure</span></span>
+<span id="cb3-56"><a href="#cb3-56"></a><span class="in">fig = go.Figure()</span></span>
+<span id="cb3-57"><a href="#cb3-57"></a></span>
+<span id="cb3-58"><a href="#cb3-58"></a><span class="in"># Add lines for temp, tempmin, tempmax</span></span>
+<span id="cb3-59"><a href="#cb3-59"></a><span class="in">fig = fig.add_trace(go.Scatter(x=meribel['datetime'], y=meribel['snow'], mode='lines', name='temp', line=dict(color='black')))</span></span>
+<span id="cb3-60"><a href="#cb3-60"></a></span>
+<span id="cb3-61"><a href="#cb3-61"></a><span class="in"># Add vertical dashed line for today's date</span></span>
+<span id="cb3-62"><a href="#cb3-62"></a><span class="in">fig = fig.add_shape(</span></span>
+<span id="cb3-63"><a href="#cb3-63"></a><span class="in">    go.layout.Shape(</span></span>
+<span id="cb3-64"><a href="#cb3-64"></a><span class="in">        type="line",</span></span>
+<span id="cb3-65"><a href="#cb3-65"></a><span class="in">        x0=today_date,</span></span>
+<span id="cb3-66"><a href="#cb3-66"></a><span class="in">        x1=today_date,</span></span>
+<span id="cb3-67"><a href="#cb3-67"></a><span class="in">        y0=min(meribel['snow']),</span></span>
+<span id="cb3-68"><a href="#cb3-68"></a><span class="in">        y1=max(meribel['snow']),</span></span>
+<span id="cb3-69"><a href="#cb3-69"></a><span class="in">        line=dict(</span></span>
+<span id="cb3-70"><a href="#cb3-70"></a><span class="in">            color="#ae8b2d",</span></span>
+<span id="cb3-71"><a href="#cb3-71"></a><span class="in">            width=1.5,</span></span>
+<span id="cb3-72"><a href="#cb3-72"></a><span class="in">            dash="dash"</span></span>
+<span id="cb3-73"><a href="#cb3-73"></a><span class="in">        )</span></span>
+<span id="cb3-74"><a href="#cb3-74"></a><span class="in">    )</span></span>
+<span id="cb3-75"><a href="#cb3-75"></a><span class="in">)</span></span>
+<span id="cb3-76"><a href="#cb3-76"></a></span>
+<span id="cb3-77"><a href="#cb3-77"></a><span class="in"># Set layout including axis labels and y-axis range</span></span>
+<span id="cb3-78"><a href="#cb3-78"></a><span class="in">fig = fig.update_layout(</span></span>
+<span id="cb3-79"><a href="#cb3-79"></a><span class="in">    xaxis_title="Date",</span></span>
+<span id="cb3-80"><a href="#cb3-80"></a><span class="in">    yaxis_title="Snow fall",</span></span>
+<span id="cb3-81"><a href="#cb3-81"></a><span class="in">)</span></span>
+<span id="cb3-82"><a href="#cb3-82"></a></span>
+<span id="cb3-83"><a href="#cb3-83"></a><span class="in"># Show the plot</span></span>
+<span id="cb3-84"><a href="#cb3-84"></a><span class="in">fig.show()</span></span>
+<span id="cb3-85"><a href="#cb3-85"></a><span class="in">```</span></span>
+<span id="cb3-86"><a href="#cb3-86"></a></span>
+<span id="cb3-87"><a href="#cb3-87"></a><span class="fu"># Data</span></span>
+<span id="cb3-88"><a href="#cb3-88"></a></span>
+<span id="cb3-89"><a href="#cb3-89"></a><span class="in">```{python}</span></span>
+<span id="cb3-90"><a href="#cb3-90"></a><span class="in">#| title: Data</span></span>
+<span id="cb3-91"><a href="#cb3-91"></a><span class="in"># Selecting all columns except 'name'</span></span>
+<span id="cb3-92"><a href="#cb3-92"></a><span class="in">meribel = meribel.drop(columns=['name'])</span></span>
+<span id="cb3-93"><a href="#cb3-93"></a></span>
+<span id="cb3-94"><a href="#cb3-94"></a><span class="in"># Displaying the DataFrame as an interactive table with pagination using itables</span></span>
+<span id="cb3-95"><a href="#cb3-95"></a><span class="in">itables.options.classes = ["display", "table", "table-bordered", "table-striped"]</span></span>
+<span id="cb3-96"><a href="#cb3-96"></a><span class="in">itables.show(meribel)</span></span>
+<span id="cb3-97"><a href="#cb3-97"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 55.6%;justify-content: center;">
+</section>
+<section id="plain-text-notebooks-w.qmd-files-1" class="slide level2">
+<h2>Plain Text Notebooks w/<code>.qmd</code> Files</h2>
 <ul>
 <li><p>Editable with any text editor (extensions for VS Code, Neovim, and Emacs)</p></li>
 <li><p>Cells always run in the same order</p></li>
@@ -586,9 +636,6 @@ with many enhancements</p>
 <li><p>Cache output with Jupyter Cache or Quarto freezer</p></li>
 <li><p>Lots of pros and cons visa-vi traditional <code>.ipynb</code> format/editors, use the right tool for each job</p></li>
 </ul>
-</div>
-</div>
-</div>
 </section>
 <section id="rendering-pipeline" class="slide level2">
 <h2>Rendering Pipeline</h2>
@@ -603,58 +650,45 @@ with many enhancements</p>
 <p>A new output format for easily creating<br>
 dashboards from notebooks</p>
 </section>
+<section id="section" class="slide level2 no-line" data-background-image="images/dashboards/dashing-through-snow.png" data-background-size="contain">
+<h2></h2>
+</section>
 <section id="section-1" class="slide level2 no-line" data-background-image="images/dashboards/customer-churn.png" data-background-size="contain">
 <h2></h2>
 </section>
 <section id="section-2" class="slide level2 no-line" data-background-image="images/dashboards/mynorfolk.png" data-background-size="contain">
 <h2></h2>
 </section>
-<section id="section-3" class="slide level2 no-line" data-background-image="images/dashboards/labor.png" data-background-size="contain">
+<section id="section-3" class="slide level2 no-line" data-background-image="images/dashboards/earthquakes.png" data-background-size="contain">
 <h2></h2>
 </section>
-<section id="section-4" class="slide level2 no-line" data-background-image="images/dashboards/earthquakes.png" data-background-size="contain">
+<section id="section-4" class="slide level2 no-line" data-background-image="images/dashboards/model-card.png" data-background-size="contain">
 <h2></h2>
 </section>
-<section id="section-5" class="slide level2 no-line" data-background-image="images/dashboards/model-card.png" data-background-size="contain">
+<section id="section-5" class="slide level2 no-line" data-background-image="images/dashboards/shiny-penguins.png" data-background-size="contain">
 <h2></h2>
 </section>
-<section id="section-6" class="slide level2 no-line" data-background-image="images/dashboards/shiny-penguins.png" data-background-size="contain">
+<section id="section-6" class="slide level2 no-line" data-background-image="images/dashboards/gapminder.png" data-background-size="contain">
 <h2></h2>
 </section>
-<section id="section-7" class="slide level2 no-line" data-background-image="images/dashboards/gapminder.png" data-background-size="contain">
-<h2></h2>
+<section id="demo-dashing-through-the-snow" class="slide level2">
+<h2>Demo: Dashing through the snow</h2>
+<p>Dashboard: <a href="https://mine.quarto.pub/dashing-through-snow-py" class="uri">https://mine.quarto.pub/dashing-through-snow-py</a></p>
+<p>Code: <a href="https://github.com/mine-cetinkaya-rundel/dashing-through-snow" class="uri">https://github.com/mine-cetinkaya-rundel/dashing-through-snow</a></p>
 </section>
 <section id="notebook-dashboard" class="slide level2">
 <h2>Notebook ➝ Dashboard</h2>
-<div class="columns">
-<div class="column">
-<p><img data-src="images/demo-gapminder-notebook-1.png" class="demo-notebook"></p>
-</div><div class="column">
-<p>&nbsp;</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>snowdash.ipynb</strong></pre>
 </div>
+<div class="sourceCode" id="cb4" data-filename="snowdash.ipynb" style="overflow-y: hidden" data-code-line-numbers="|3"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1"></a><span class="co">---</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="an">title:</span><span class="co"> "Dashing through the snow ❄️"</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="an">format:</span><span class="co"> dashboard</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="co">---</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a></span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="fu"># notebook content goes here...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="notebook-dashboard-1" class="slide level2">
-<h2>Notebook ➝ Dashboard</h2>
-<div class="columns">
-<div class="column">
-<img data-src="images/demo-gapminder-notebook.png" class="demo-notebook">
-</div><div class="column">
-<img data-src="images/demo-gapminder-notebook-output.png" class="demo-output fragment fade-in-then-out">
-</div>
-</div>
-<p>:::</p>
-</section>
-<section id="notebook-dashboard-2" class="slide level2">
-<h2>Notebook ➝ Dashboard</h2>
-<div class="columns">
-<div class="column">
-<img data-src="images/demo-gapminder-notebook-data.png" class="demo-notebook">
-</div><div class="column">
-<img data-src="images/demo-gapminder-notebook-data-output.png" class="demo-output fragment fade-in-then-out">
-</div>
-</div>
-<p>:::</p>
 </section>
 <section id="dashboard-components" class="slide level2">
 <h2>Dashboard Components</h2>
@@ -671,45 +705,45 @@ dashboards from notebooks</p>
 <h2>Navigation Bar and Pages</h2>
 
 <img data-src="images/navigation-toolbar.png" class="r-stretch"><div style="margin-top: 0.7em;">
-<div class="sourceCode" id="cb4"><pre class="sourceCode python pymd code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="op">---</span> </span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>title: <span class="st">"Palmer Penguins"</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>author: <span class="st">"Cobblepot Analytics"</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="bu">format</span>: </span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  dashboard:</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    logo: images<span class="op">/</span>penguins.png</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    nav<span class="op">-</span>buttons: [linkedin, twitter, github]</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="op">---</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Bills</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Flippers</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python pymd code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="op">---</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>title: <span class="st">"Palmer Penguins"</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>author: <span class="st">"Cobblepot Analytics"</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="bu">format</span>: </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  dashboard:</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    logo: images<span class="op">/</span>penguins.png</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    nav<span class="op">-</span>buttons: [linkedin, twitter, github]</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="op">---</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Bills</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Flippers</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="sidebars-page-level" class="slide level2 component-slide">
 <h2>Sidebars: Page Level</h2>
 <div class="columns">
 <div class="column">
-<div class="sourceCode" id="cb5" style="margin-top: 45px;"><pre class="sourceCode python pymd code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="op">---</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>title: <span class="st">"Sidebar"</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">format</span>: dashboard</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="op">---</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Page 1</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">## {.sidebar}</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>```{python}</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>```</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">## Column </span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>```{python}</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>```</span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>```{python}</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>```</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6" style="margin-top: 45px;"><pre class="sourceCode python pymd code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="op">---</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>title: <span class="st">"Sidebar"</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">format</span>: dashboard</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="op">---</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Page 1</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">## {.sidebar}</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>```{python}</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co">## Column </span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>```{python}</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>```{python}</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>```</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column fragment">
 <p><img data-src="images/chart-input-sidebar.png"></p>
 </div>
@@ -719,24 +753,24 @@ dashboards from notebooks</p>
 <h2>Sidebars: Global</h2>
 <div class="columns">
 <div class="column">
-<div class="sourceCode" id="cb6" style="margin-top: 45px;"><pre class="sourceCode python pymd code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="op">---</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>title: <span class="st">"Global Sidebar"</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">format</span>: dashboard</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="op">---</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># {.sidebar}</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>Sidebar content (e.g. inputs)</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>```{python}</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>```</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Data</span></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>```{python}</span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>```</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7" style="margin-top: 45px;"><pre class="sourceCode python pymd code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="op">---</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>title: <span class="st">"Global Sidebar"</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">format</span>: dashboard</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="op">---</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co"># {.sidebar}</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>Sidebar content (e.g. inputs)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>```{python}</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Data</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>```{python}</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>```</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column fragment">
 <p><img data-src="images/global-sidebar.png" style="width:80.0%"></p>
 </div>
@@ -746,91 +780,91 @@ dashboards from notebooks</p>
 <h2>Layout: Rows</h2>
 <div class="columns">
 <div class="column" style="margin-top: 65px;">
-<div class="sourceCode" id="cb7"><pre class="sourceCode python pymd code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="op">---</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>title: <span class="st">"Focal (Top)"</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">format</span>: dashboard</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="op">---</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">## Row {height=70%}</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>```{python}</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>```</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co">## Row {height=30%}</span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>```{python}</span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>```</span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>```{python}</span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>```</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python pymd code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="op">---</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>title: <span class="st">"Focal (Top)"</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">format</span>: dashboard</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="op">---</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co">## Row {height=70%}</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>```{python}</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="co">## Row {height=30%}</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>```{python}</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>```{python}</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>```</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column fragment">
 <p><img data-src="images/chart-focal-top.png" style="width:90.0%"></p>
 </div>
 </div>
 </section>
-<section id="section-8" class="slide level2 no-line" data-background-image="images/dashboards/customer-churn.png" data-background-size="contain">
+<section id="section-7" class="slide level2 no-line" data-background-image="images/dashboards/customer-churn.png" data-background-size="contain">
 <h2></h2>
 </section>
 <section id="layout-columns" class="slide level2 component-slide">
 <h2>Layout: Columns</h2>
 <div class="columns">
 <div class="column" style="margin-top: 40px;">
-<div class="sourceCode" id="cb8"><pre class="sourceCode python pymd code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="op">---</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>title: <span class="st">"Focal (Top)"</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">format</span>: </span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  dashboard:</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    orientation: columns</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="op">---</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co">## Column {width=60%}</span></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>```{python}</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>```</span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="co">## Column {width=40%}</span></span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>```{python}</span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>```</span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>```{python}</span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>```</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python pymd code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="op">---</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>title: <span class="st">"Focal (Top)"</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="bu">format</span>: </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  dashboard:</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    orientation: columns</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="op">---</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co">## Column {width=60%}</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>```{python}</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="co">## Column {width=40%}</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>```{python}</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>```{python}</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>```</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column fragment">
 <p><img data-src="images/chart-focal-left.png"></p>
 </div>
 </div>
 </section>
-<section id="section-9" class="slide level2 no-line" data-background-image="images/dashboards/housing-market.png" data-background-size="contain">
+<section id="section-8" class="slide level2 no-line" data-background-image="images/dashboards/housing-market.png" data-background-size="contain">
 <h2></h2>
 </section>
 <section id="tabsets" class="slide level2 component-slide">
 <h2>Tabsets</h2>
 <div class="columns">
 <div class="column" style="margin-top: 45px;">
-<div class="sourceCode" id="cb9"><pre class="sourceCode python pymd code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="op">---</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>title: <span class="st">"Palmer Penguins"</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="bu">format</span>: dashboard</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="op">---</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co">## Row</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>```{python}</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>```</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co">## Row {.tabset}</span></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>```{python}</span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="co">#| title: Chart 2</span></span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>```</span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>```{python}</span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="co">#| title: Chart 3</span></span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>```</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python pymd code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="op">---</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>title: <span class="st">"Palmer Penguins"</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="bu">format</span>: dashboard</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="op">---</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co">## Row</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>```{python}</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co">## Row {.tabset}</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>```{python}</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="co">#| title: Chart 2</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>```{python}</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a><span class="co">#| title: Chart 3</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>```</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column fragment">
 <p><img data-src="images/chart-tabset-row.png" style="width:87.0%"></p>
 </div>
 </div>
 </section>
-<section id="section-10" class="slide level2 no-line" data-background-image="images/dashboards/mynorfolk.png" data-background-size="contain">
+<section id="section-9" class="slide level2 no-line" data-background-image="images/dashboards/mynorfolk.png" data-background-size="contain">
 <h2></h2>
 </section>
 <section id="plots" class="slide level2 component-slide">
@@ -838,18 +872,18 @@ dashboards from notebooks</p>
 <div class="columns">
 <div class="column fragment smaller">
 <p><a href="https://plotly.com/python/">plotly</a></p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>```{python}</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| title: GDP and Life Expectancy</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.express <span class="im">as</span> px</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> px.data.gapminder()</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>px.scatter(</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  df, x<span class="op">=</span><span class="st">"gdpPercap"</span>, y<span class="op">=</span><span class="st">"lifeExp"</span>, </span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  animation_frame<span class="op">=</span><span class="st">"year"</span>, animation_group<span class="op">=</span><span class="st">"country"</span>,</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  size<span class="op">=</span><span class="st">"pop"</span>, color<span class="op">=</span><span class="st">"continent"</span>, hover_name<span class="op">=</span><span class="st">"country"</span>, </span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  facet_col<span class="op">=</span><span class="st">"continent"</span>, log_x<span class="op">=</span><span class="va">True</span>, size_max<span class="op">=</span><span class="dv">45</span>, </span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  range_x<span class="op">=</span>[<span class="dv">100</span>,<span class="dv">100000</span>], range_y<span class="op">=</span>[<span class="dv">25</span>,<span class="dv">90</span>]</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>```</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>```{python}</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| title: GDP and Life Expectancy</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.express <span class="im">as</span> px</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> px.data.gapminder()</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>px.scatter(</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  df, x<span class="op">=</span><span class="st">"gdpPercap"</span>, y<span class="op">=</span><span class="st">"lifeExp"</span>, </span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  animation_frame<span class="op">=</span><span class="st">"year"</span>, animation_group<span class="op">=</span><span class="st">"country"</span>,</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  size<span class="op">=</span><span class="st">"pop"</span>, color<span class="op">=</span><span class="st">"continent"</span>, hover_name<span class="op">=</span><span class="st">"country"</span>, </span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  facet_col<span class="op">=</span><span class="st">"continent"</span>, log_x<span class="op">=</span><span class="va">True</span>, size_max<span class="op">=</span><span class="dv">45</span>, </span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  range_x<span class="op">=</span>[<span class="dv">100</span>,<span class="dv">100000</span>], range_y<span class="op">=</span>[<span class="dv">25</span>,<span class="dv">90</span>]</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>```</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column fragment">
 <p><img data-src="images/plotly-interactive.png" style="width:85.0%"></p>
 </div>
@@ -857,13 +891,13 @@ dashboards from notebooks</p>
 <div class="columns">
 <div class="column fragment smaller">
 <p><a href="https://ipyleaflet.readthedocs.io">ipyleaflet</a></p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>```{python}</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| title: "World Map"</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| padding: 0px</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ipyleaflet <span class="im">import</span> Map, basemaps, basemap_to_tiles</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>Map(basemap<span class="op">=</span>basemap_to_tiles(basemaps.OpenStreetMap.Mapnik),</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    center<span class="op">=</span>(<span class="fl">48.204793</span>, <span class="fl">350.121558</span>), zoom<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>```</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>```{python}</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| title: "World Map"</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| padding: 0px</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ipyleaflet <span class="im">import</span> Map, basemaps, basemap_to_tiles</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>Map(basemap<span class="op">=</span>basemap_to_tiles(basemaps.OpenStreetMap.Mapnik),</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    center<span class="op">=</span>(<span class="fl">48.204793</span>, <span class="fl">350.121558</span>), zoom<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>```</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column fragment">
 <p><img data-src="images/leaflet-card-title-padding.png" style="width:85.0%"></p>
 </div>
@@ -874,11 +908,11 @@ dashboards from notebooks</p>
 <div class="columns">
 <div class="column fragment">
 <p><a href="https://pypi.org/project/tabulate/">tabulate</a></p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>```{python}</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tabulate <span class="im">import</span> tabulate</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> Markdown</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>Markdown(tabulate(penguins, showindex<span class="op">=</span><span class="va">False</span>)}</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>```</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>```{python}</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tabulate <span class="im">import</span> tabulate</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> Markdown</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>Markdown(tabulate(penguins, showindex<span class="op">=</span><span class="va">False</span>)}</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>```</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column fragment">
 <p><img data-src="images/tabulate.png"></p>
 </div>
@@ -886,10 +920,10 @@ dashboards from notebooks</p>
 <div class="columns">
 <div class="column fragment">
 <p><a href="https://pypi.org/project/itables/">itables</a></p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>```{python}</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> itables <span class="im">import</span> show</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>show(penguins)</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>```</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>```{python}</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> itables <span class="im">import</span> show</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>show(penguins)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>```</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column fragment">
 <p><img data-src="images/itables-scrolling.png"></p>
 </div>
@@ -910,24 +944,24 @@ dashboards from notebooks</p>
 <h2>Value Boxes</h2>
 <div class="columns">
 <div class="column" style="width:45%;">
-<div class="sourceCode" id="cb14" style="margin-top: 45px;" data-code-line-numbers="|3-9|14-17|"><pre class="sourceCode numberSource python pymd number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="co">## Row</span></span>
-<span id="cb14-2"><a href="#cb14-2"></a></span>
-<span id="cb14-3"><a href="#cb14-3"></a>```{python}</span>
-<span id="cb14-4"><a href="#cb14-4"></a><span class="co">#| component: valuebox</span></span>
-<span id="cb14-5"><a href="#cb14-5"></a><span class="co">#| title: "Current Price"</span></span>
-<span id="cb14-6"><a href="#cb14-6"></a><span class="bu">dict</span>(icon <span class="op">=</span> <span class="st">"currency-dollar"</span>,</span>
-<span id="cb14-7"><a href="#cb14-7"></a>     color <span class="op">=</span> <span class="st">"secondary"</span>,</span>
-<span id="cb14-8"><a href="#cb14-8"></a>     value <span class="op">=</span> get_price(data))</span>
-<span id="cb14-9"><a href="#cb14-9"></a>```</span>
-<span id="cb14-10"><a href="#cb14-10"></a></span>
-<span id="cb14-11"><a href="#cb14-11"></a>```{python}</span>
-<span id="cb14-12"><a href="#cb14-12"></a><span class="co">#| component: valuebox</span></span>
-<span id="cb14-13"><a href="#cb14-13"></a><span class="co">#| title: "Change"</span></span>
-<span id="cb14-14"><a href="#cb14-14"></a>change <span class="op">=</span> get_change(data)</span>
-<span id="cb14-15"><a href="#cb14-15"></a><span class="bu">dict</span>(value <span class="op">=</span> change[<span class="st">'amount'</span>],</span>
-<span id="cb14-16"><a href="#cb14-16"></a>     icon <span class="op">=</span> change[<span class="st">'icon'</span>],</span>
-<span id="cb14-17"><a href="#cb14-17"></a>     color <span class="op">=</span> change[<span class="st">'color'</span>]) </span>
-<span id="cb14-18"><a href="#cb14-18"></a>```</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15" style="margin-top: 45px;" data-code-line-numbers="|3-9|14-17|"><pre class="sourceCode numberSource python pymd number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="co">## Row</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a></span>
+<span id="cb15-3"><a href="#cb15-3"></a>```{python}</span>
+<span id="cb15-4"><a href="#cb15-4"></a><span class="co">#| component: valuebox</span></span>
+<span id="cb15-5"><a href="#cb15-5"></a><span class="co">#| title: "Current Price"</span></span>
+<span id="cb15-6"><a href="#cb15-6"></a><span class="bu">dict</span>(icon <span class="op">=</span> <span class="st">"currency-dollar"</span>,</span>
+<span id="cb15-7"><a href="#cb15-7"></a>     color <span class="op">=</span> <span class="st">"secondary"</span>,</span>
+<span id="cb15-8"><a href="#cb15-8"></a>     value <span class="op">=</span> get_price(data))</span>
+<span id="cb15-9"><a href="#cb15-9"></a>```</span>
+<span id="cb15-10"><a href="#cb15-10"></a></span>
+<span id="cb15-11"><a href="#cb15-11"></a>```{python}</span>
+<span id="cb15-12"><a href="#cb15-12"></a><span class="co">#| component: valuebox</span></span>
+<span id="cb15-13"><a href="#cb15-13"></a><span class="co">#| title: "Change"</span></span>
+<span id="cb15-14"><a href="#cb15-14"></a>change <span class="op">=</span> get_change(data)</span>
+<span id="cb15-15"><a href="#cb15-15"></a><span class="bu">dict</span>(value <span class="op">=</span> change[<span class="st">'amount'</span>],</span>
+<span id="cb15-16"><a href="#cb15-16"></a>     icon <span class="op">=</span> change[<span class="st">'icon'</span>],</span>
+<span id="cb15-17"><a href="#cb15-17"></a>     color <span class="op">=</span> change[<span class="st">'color'</span>]) </span>
+<span id="cb15-18"><a href="#cb15-18"></a>```</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column fragment" style="width:55%;">
 <p><img data-src="images/value-box-app.png" class="border" style="width:80.0%"></p>
 </div>
@@ -942,28 +976,28 @@ dashboards from notebooks</p>
 <h2>Text Content</h2>
 <div class="columns">
 <div class="column" style="width:55%;">
-<div class="sourceCode" id="cb15" data-code-line-numbers="|17-22|"><pre class="sourceCode numberSource python pymd number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="co">## Column</span></span>
-<span id="cb15-2"><a href="#cb15-2"></a></span>
-<span id="cb15-3"><a href="#cb15-3"></a>```{python}</span>
-<span id="cb15-4"><a href="#cb15-4"></a><span class="co">#| title: Population</span></span>
-<span id="cb15-5"><a href="#cb15-5"></a>px.area(df, x<span class="op">=</span><span class="st">"year"</span>, y<span class="op">=</span><span class="st">"pop"</span>, </span>
-<span id="cb15-6"><a href="#cb15-6"></a>        color<span class="op">=</span><span class="st">"continent"</span>, </span>
-<span id="cb15-7"><a href="#cb15-7"></a>        line_group<span class="op">=</span><span class="st">"country"</span>)</span>
-<span id="cb15-8"><a href="#cb15-8"></a>```</span>
-<span id="cb15-9"><a href="#cb15-9"></a></span>
-<span id="cb15-10"><a href="#cb15-10"></a>```{python}</span>
-<span id="cb15-11"><a href="#cb15-11"></a><span class="co">#| title: Life Expectancy</span></span>
-<span id="cb15-12"><a href="#cb15-12"></a>px.line(df, x<span class="op">=</span><span class="st">"year"</span>, y<span class="op">=</span><span class="st">"lifeExp"</span>, </span>
-<span id="cb15-13"><a href="#cb15-13"></a>        color<span class="op">=</span><span class="st">"continent"</span>, </span>
-<span id="cb15-14"><a href="#cb15-14"></a>        line_group<span class="op">=</span><span class="st">"country"</span>)</span>
-<span id="cb15-15"><a href="#cb15-15"></a>```</span>
-<span id="cb15-16"><a href="#cb15-16"></a></span>
-<span id="cb15-17"><a href="#cb15-17"></a>::: {.card}</span>
-<span id="cb15-18"><a href="#cb15-18"></a>Gapminder combines data <span class="im">from</span> multiple sources</span>
-<span id="cb15-19"><a href="#cb15-19"></a>into unique coherent time<span class="op">-</span>series that can’t be</span>
-<span id="cb15-20"><a href="#cb15-20"></a>found elsewhere. Learn more about the Gampminder</span>
-<span id="cb15-21"><a href="#cb15-21"></a>dataset at <span class="op">&lt;</span>https:<span class="op">//</span>www.gapminder.org<span class="op">/</span>data<span class="op">/&gt;</span>.</span>
-<span id="cb15-22"><a href="#cb15-22"></a>:::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16" data-code-line-numbers="|17-22|"><pre class="sourceCode numberSource python pymd number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a><span class="co">## Column</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a></span>
+<span id="cb16-3"><a href="#cb16-3"></a>```{python}</span>
+<span id="cb16-4"><a href="#cb16-4"></a><span class="co">#| title: Population</span></span>
+<span id="cb16-5"><a href="#cb16-5"></a>px.area(df, x<span class="op">=</span><span class="st">"year"</span>, y<span class="op">=</span><span class="st">"pop"</span>, </span>
+<span id="cb16-6"><a href="#cb16-6"></a>        color<span class="op">=</span><span class="st">"continent"</span>, </span>
+<span id="cb16-7"><a href="#cb16-7"></a>        line_group<span class="op">=</span><span class="st">"country"</span>)</span>
+<span id="cb16-8"><a href="#cb16-8"></a>```</span>
+<span id="cb16-9"><a href="#cb16-9"></a></span>
+<span id="cb16-10"><a href="#cb16-10"></a>```{python}</span>
+<span id="cb16-11"><a href="#cb16-11"></a><span class="co">#| title: Life Expectancy</span></span>
+<span id="cb16-12"><a href="#cb16-12"></a>px.line(df, x<span class="op">=</span><span class="st">"year"</span>, y<span class="op">=</span><span class="st">"lifeExp"</span>, </span>
+<span id="cb16-13"><a href="#cb16-13"></a>        color<span class="op">=</span><span class="st">"continent"</span>, </span>
+<span id="cb16-14"><a href="#cb16-14"></a>        line_group<span class="op">=</span><span class="st">"country"</span>)</span>
+<span id="cb16-15"><a href="#cb16-15"></a>```</span>
+<span id="cb16-16"><a href="#cb16-16"></a></span>
+<span id="cb16-17"><a href="#cb16-17"></a>::: {.card}</span>
+<span id="cb16-18"><a href="#cb16-18"></a>Gapminder combines data <span class="im">from</span> multiple sources</span>
+<span id="cb16-19"><a href="#cb16-19"></a>into unique coherent time<span class="op">-</span>series that can’t be</span>
+<span id="cb16-20"><a href="#cb16-20"></a>found elsewhere. Learn more about the Gampminder</span>
+<span id="cb16-21"><a href="#cb16-21"></a>dataset at <span class="op">&lt;</span>https:<span class="op">//</span>www.gapminder.org<span class="op">/</span>data<span class="op">/&gt;</span>.</span>
+<span id="cb16-22"><a href="#cb16-22"></a>:::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column fragment" style="width:45%;">
 <p><img data-src="images/text-content-column.png" style="width:100.0%"></p>
 </div>
@@ -974,7 +1008,7 @@ dashboards from notebooks</p>
 <p>Cards provide an <strong>Expand</strong> button which appears at bottom right on hover:</p>
 
 <img data-src="images/expanding-cards.png" class="r-stretch"></section>
-<section id="section-11" class="slide level2 no-line" data-background-image="images/expanding-cards-expanded.png" data-background-size="contain">
+<section id="section-10" class="slide level2 no-line" data-background-image="images/expanding-cards-expanded.png" data-background-size="contain">
 <h2></h2>
 </section>
 <section id="dashboard-deployment" class="slide level2">
@@ -1022,12 +1056,12 @@ dashboards from notebooks</p>
 <p><img data-src="images/stock-explorer-dashboard.png"></p>
 </div><div class="column">
 <p>Add a parameters tag to the first cell (based on <a href="https://papermill.readthedocs.io/en/latest/usage-parameterize.html">papermill</a>) :</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>```{python}</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| tags: [parameters]</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>ticker <span class="op">=</span> <span class="st">"BA"</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>```</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>```{python}</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| tags: [parameters]</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>ticker <span class="op">=</span> <span class="st">"BA"</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>```</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Use the <code>-P</code> command line option to vary the parameter:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render dashboard.qmd <span class="at">-P</span> ticker:GOOG</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render dashboard.qmd <span class="at">-P</span> ticker:GOOG</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -1046,50 +1080,11 @@ dashboards from notebooks</p>
 </div>
 </div>
 </section>
-<section id="hello-shiny" class="slide level2 smaller">
-<h2>Hello, Shiny</h2>
-<div class="columns">
-<div class="column">
-<div class="sourceCode" id="cb18" data-code-line-numbers="|15-19|25-29|29|"><pre class="sourceCode numberSource python pymd number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a><span class="op">---</span></span>
-<span id="cb18-2"><a href="#cb18-2"></a>title: <span class="st">"Penguin Bills"</span></span>
-<span id="cb18-3"><a href="#cb18-3"></a><span class="bu">format</span>: dashboard</span>
-<span id="cb18-4"><a href="#cb18-4"></a>server: shiny</span>
-<span id="cb18-5"><a href="#cb18-5"></a><span class="op">---</span></span>
-<span id="cb18-6"><a href="#cb18-6"></a></span>
-<span id="cb18-7"><a href="#cb18-7"></a>```{python}</span>
-<span id="cb18-8"><a href="#cb18-8"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb18-9"><a href="#cb18-9"></a>penguins <span class="op">=</span> sns.load_dataset(<span class="st">"penguins"</span>)</span>
-<span id="cb18-10"><a href="#cb18-10"></a>```</span>
-<span id="cb18-11"><a href="#cb18-11"></a></span>
-<span id="cb18-12"><a href="#cb18-12"></a><span class="co">## {.sidebar}</span></span>
-<span id="cb18-13"><a href="#cb18-13"></a></span>
-<span id="cb18-14"><a href="#cb18-14"></a>```{python}</span>
-<span id="cb18-15"><a href="#cb18-15"></a><span class="im">from</span> shiny <span class="im">import</span> render, ui</span>
-<span id="cb18-16"><a href="#cb18-16"></a>ui.input_select(<span class="st">"x"</span>, <span class="st">"Variable:"</span>,</span>
-<span id="cb18-17"><a href="#cb18-17"></a>                choices<span class="op">=</span>[<span class="st">"bill_length_mm"</span>, <span class="st">"bill_depth_mm"</span>])</span>
-<span id="cb18-18"><a href="#cb18-18"></a>ui.input_select(<span class="st">"dist"</span>, <span class="st">"Distribution:"</span>, choices<span class="op">=</span>[<span class="st">"hist"</span>, <span class="st">"kde"</span>])</span>
-<span id="cb18-19"><a href="#cb18-19"></a>ui.input_checkbox(<span class="st">"rug"</span>, <span class="st">"Show rug marks"</span>, value <span class="op">=</span> <span class="va">False</span>)</span>
-<span id="cb18-20"><a href="#cb18-20"></a>```</span>
-<span id="cb18-21"><a href="#cb18-21"></a></span>
-<span id="cb18-22"><a href="#cb18-22"></a><span class="co">## Column</span></span>
-<span id="cb18-23"><a href="#cb18-23"></a></span>
-<span id="cb18-24"><a href="#cb18-24"></a>```{python}</span>
-<span id="cb18-25"><a href="#cb18-25"></a><span class="at">@render.plot</span></span>
-<span id="cb18-26"><a href="#cb18-26"></a><span class="kw">def</span> displot():</span>
-<span id="cb18-27"><a href="#cb18-27"></a>    sns.displot(</span>
-<span id="cb18-28"><a href="#cb18-28"></a>        data<span class="op">=</span>penguins, hue<span class="op">=</span><span class="st">"species"</span>, multiple<span class="op">=</span><span class="st">"stack"</span>,</span>
-<span id="cb18-29"><a href="#cb18-29"></a>        x<span class="op">=</span><span class="bu">input</span>.x(), rug<span class="op">=</span><span class="bu">input</span>.rug(),kind<span class="op">=</span><span class="bu">input</span>.dist())</span>
-<span id="cb18-30"><a href="#cb18-30"></a>```</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
-<p><img data-src="images/hello-shiny-slide.png"></p>
-</div>
-</div>
-</section>
-<section id="section-12" class="slide level2 no-line" data-background-image="images/dashboards/shiny-penguins.png" data-background-size="contain">
+<section id="section-11" class="slide level2 no-line" data-background-image="images/dashboards/shiny-penguins.png" data-background-size="contain">
 <h2></h2>
 </section>
-<section id="shiny-deployment" class="slide level2">
-<h2>Shiny Deployment</h2>
+<section id="deployment-of-interactive-dashboards" class="slide level2">
+<h2>Deployment of Interactive Dashboards</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
 <h3 id="server">Server</h3>
@@ -1113,6 +1108,7 @@ dashboards from notebooks</p>
 <!-- -->
 <h3 id="serverless">Serverless</h3>
 <p>Using <a href="https://pyodide.org/">Pyodide</a></p>
+<p>[<a href="https://wch.github.io/retirement-simulation-dashboard/">Example</a>]</p>
 </div>
 </div>
 </section>
@@ -1143,15 +1139,7 @@ dashboards from notebooks</p>
 </table>
 </div>
 <h3 style="margin-top: 0.4em; font-size: 1em;" id="slides">Slides</h3>
-<p><a href="https://jjallaire.github.io/pydata-quarto-dashboards/" class="uri">https://jjallaire.github.io/pydata-quarto-dashboards/</a></p>
-<script type="text/javascript">
-// tweak headings in pymd
-document.querySelectorAll(".pymd span.co").forEach(el => {
-   if (!el.innerText.startsWith("#|")) {
-      el.style.fontWeight = 1000;
-   }
-});
-</script>
+<p><a href="https://mine.quarto.pub/quarto-dashboards-pydata/" class="uri">https://mine.quarto.pub/quarto-dashboards-pydata/</a></p>
 <div class="footer footer-default">
 
 </div>
